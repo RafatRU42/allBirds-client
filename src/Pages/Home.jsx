@@ -11,6 +11,7 @@ const Home = () => {
            </Fade>
            </div>
            <div className='w-full my-8 md:w-2/3 md:my-auto'>
+           
                 <Fade>
                 <h1 className='uppercase text-7xl font-link text-center '>Upto 50% Off Wardrobe wins!</h1>
                 <p className='text-center my-4 text-xl'>Limited time only. Selected styles marked down as shown.</p>
