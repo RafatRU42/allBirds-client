@@ -1,16 +1,23 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { addToCart } from "../Cart/cartSlice";
 
 const SeeDetails = () => {
   const data = useLoaderData();
 
   const navigate = useNavigate()
 
+  const dispatch = useDispatch()
+
   const { image, category, title, description, price, rating } = data;
   const email = 'rmrafat127@gmail.com'
 
 
   const handleAddToCart = () =>{
+
+    dispatch(addToCart(data))
+
         const cartInfo = {
             email,
             image,

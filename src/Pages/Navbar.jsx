@@ -57,10 +57,10 @@ const Navbar = () => {
                 <li className="mx-3">Home</li>
               </Link>
 
-              <div className="dropdown dropdown-hover mx-3">
-                <label tabIndex={0} className="">
+              <div className="dropdown mx-3">
+                <button tabIndex={0} className="">
                   Products
-                </label>
+                </button>
                 <ul
                   tabIndex={0}
                   className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 my-2"
@@ -83,7 +83,7 @@ const Navbar = () => {
               </Link>
             </ul>
           </div>
-          <div className="dropdown dropdown-end dropdown-hover mr-3">
+          <div className="dropdown dropdown-end  mr-3">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
               <div className="indicator">
                 <svg
