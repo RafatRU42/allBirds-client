@@ -8,6 +8,7 @@ import Jewellery from "../Pages/Products/Jewellery";
 import Electronics from "../Pages/Products/Electronics";
 import SeeDetails from "../Pages/Products/SeeDetails";
 import Cart from "../Pages/Cart/Cart";
+import Loading from "./Loading";
 
 export const router = createBrowserRouter([
     {path:'/',element:<MainLayout></MainLayout>,children:[
@@ -20,5 +21,6 @@ export const router = createBrowserRouter([
         {path:'/cartRoute',element:<Cart></Cart>},
 
         {path:'/seeDetails/:id',element:<SeeDetails></SeeDetails>,loader:({params}) =>fetch(`http://localhost:5000/details/${params.id}`)},
-    ]}
+    ]},
+
 ])

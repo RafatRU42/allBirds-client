@@ -6,16 +6,29 @@ import Women from "./Women";
 import Jewellery from "./Jewellery";
 import Electronics from "./Electronics";
 import { Link } from "react-router-dom";
+import Loading from "../../Shared/Loading";
 
 const AllProducts = () => {
   const [product, setProduct] = useState([]);
+  const [loading,setLoading] = useState(true)
+
+ 
+ 
 
   fetch("http://localhost:5000/allProducts")
     .then((res) => res.json())
-    .then((data) => setProduct(data));
+    .then((data) => {
+      setLoading(false)
+      setProduct(data)
+    });
+
+    if(loading){
+      return <Loading></Loading>
+    }
   return (
     <div class="horizontal-scroll-container">
       <h1 className="font-link text-3xl pt-5 pl-10">All Products</h1>
+
 
       <div class="horizontal-scroll-content" className="flex m-5">
         {product.slice(0,2).map((data) => (

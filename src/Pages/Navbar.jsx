@@ -7,7 +7,10 @@ const Navbar = () => {
   const email = "rmrafat127@gmail.com";
   fetch(`http://localhost:5000/getCartProduct?email=${email}`)
     .then((res) => res.json())
-    .then((data) => setProduct(data));
+    .then((data) => {
+      setProduct(data)
+      setLoading(false)
+    });
 
   return (
     <div>
@@ -66,15 +69,21 @@ const Navbar = () => {
                   className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 my-2"
                 >
                   <Link to={"/allProducts"}>
-                    <li className="btn btn-xs mx-3 my-1">All Products</li>
+                    <li className="btn btn-xs btn-error text-white mx-3 my-1">All Products</li>
                   </Link>
                   <Link to={"/men"}>
-                    <li className="btn btn-xs mx-3 my-1">Men's Clothing</li>
+                    <li className="btn btn-xs btn-error text-white mx-3 my-1">Men's Clothing</li>
+                  </Link>
+                  <Link to={"/women"}>
+                    <li className="btn btn-xs btn-error text-white mx-3 my-1">Women's Clothing</li>
+                  </Link>
+                  <Link to={"/jewellery"}>
+                    <li className="btn btn-xs btn-error text-white mx-3 my-1">Jewellery</li>
+                  </Link>
+                  <Link to={"/electronics"}>
+                    <li className="btn btn-xs btn-error text-white mx-3 my-1">Electronics</li>
                   </Link>
 
-                  <li>
-                    <a>Item 2</a>
-                  </li>
                 </ul>
               </div>
 
