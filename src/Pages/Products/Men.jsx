@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
 import ShowProduct from './ShowProduct';
+import Loading from '../../Shared/Loading';
 
 const Men = () => {
 
     const [data,setData] = useState([])
+    const [loading,setLoading] = useState(true)
 
     fetch('http://localhost:5000/men')
     .then(res=> res.json())
-    .then(result => setData(result))
+    .then(result => {
+        setLoading(false)
+        setData(result)
+    })
+
+    if(loading){
+        return <Loading></Loading>
+    }
 
     return (
         <div>
