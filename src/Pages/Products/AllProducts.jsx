@@ -5,6 +5,7 @@ import Men from "./Men";
 import Women from "./Women";
 import Jewellery from "./Jewellery";
 import Electronics from "./Electronics";
+import { Link } from "react-router-dom";
 
 const AllProducts = () => {
   const [product, setProduct] = useState([]);

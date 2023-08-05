@@ -1,11 +1,12 @@
 import Flicking from "@egjs/react-flicking";
 import React from "react";
 import './../../script'
+import { Link } from "react-router-dom";
 
 
 
 const ShowProduct = ({ product }) => {
-  const { title, price, description, image } = product;
+  const { title, price, description, image,_id } = product;
 
   return (
     <div className="m-4 rellax" data-rellax-speed="-2">
@@ -23,7 +24,7 @@ const ShowProduct = ({ product }) => {
            {title.substring(0,25)}..
             
           </h2>
-          <p>{description.substring(0,100)}...</p>
+          <p>{description.substring(0,70)}...</p>
           
           <div className="card-actions justify-between">
           <p className="font-bold">Price: $ {price}</p>
@@ -33,7 +34,11 @@ const ShowProduct = ({ product }) => {
 
         </div >
         <div className="">
-        <button className=" bg-orange-400 w-full p-3 -mt-2 font-bold text-white">Add to Cart</button>
+        {/* <button className=" bg-orange-400 w-full p-3 -mt-2 font-bold text-white">Add to Cart</button> */}
+      
+      <Link  className="btn btn-error w-full p-3 -mt-2 font-bold text-white font-link"  to={`/seeDetails/${_id}`}>See Details</Link>
+      
+
 
         </div>
 

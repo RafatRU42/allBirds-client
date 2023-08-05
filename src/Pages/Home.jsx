@@ -7,7 +7,7 @@ const Home = () => {
            <div className='w-full md:flex m-6'>
            <div className='md:w-1/3 w-full'>
            <Fade direction='left'>
-           <img  src="https://i.ibb.co/s3xttLY/1759326.gif" alt="" />
+           <img className='ml-20'  src="https://i.ibb.co/s3xttLY/1759326.gif" alt="" />
            </Fade>
            </div>
            <div className='w-full my-8 md:w-2/3 md:my-auto'>
