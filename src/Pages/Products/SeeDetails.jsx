@@ -27,7 +27,7 @@ const SeeDetails = () => {
             price
         }
 
-        fetch('http://localhost:5000/addToCart',{
+        fetch('https://all-birds-server-rafat.vercel.app/addToCart',{
             method:'POST',
             headers:{
                 'content-type' : 'application/json'

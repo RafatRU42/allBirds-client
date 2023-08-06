@@ -7,7 +7,7 @@ const Women = () => {
     const [product,setProduct] = useState([])
     const [loading,setLoading] = useState(true)
 
-    fetch('http://localhost:5000/women')
+    fetch('https://all-birds-server-rafat.vercel.app/women')
     .then(res => res.json())
     .then(data => {
         setProduct(data)
@@ -20,7 +20,7 @@ const Women = () => {
     return (
         <div>
             <p className='font-link text-3xl pt-5 pl-10'>Women's Clothing</p>
-           <div className='flex m-5'>
+           <div className='grid grid-grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:ml-10'>
            {
             product.map(products => <ShowProduct product={products} key={products._id}></ShowProduct>)
            } 

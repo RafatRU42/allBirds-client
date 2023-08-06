@@ -5,7 +5,7 @@ const Navbar = () => {
   const [product, setProduct] = useState([]);
 
   const email = "rmrafat127@gmail.com";
-  fetch(`http://localhost:5000/getCartProduct?email=${email}`)
+  fetch(`https://all-birds-server-rafat.vercel.app/getCartProduct?email=${email}`)
     .then((res) => res.json())
     .then((data) => {
       setProduct(data)
@@ -13,8 +13,8 @@ const Navbar = () => {
     });
 
   return (
-    <div>
-      <div className="navbar bg-base-100 shadow-md">
+    <div className="">
+      <div className="navbar bg-orange-500 text-white shadow-md ">
         <div className="flex-1">
           <div className="dropdown md:hidden">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -48,9 +48,9 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-2xl font-link italic">
-            allbirds
-          </a>
+          <Link to={'/'} className="btn btn-ghost normal-case text-2xl font-link italic">
+            allBirds
+          </Link>
         </div>
 
         <div className="flex-none">
@@ -87,9 +87,9 @@ const Navbar = () => {
                 </ul>
               </div>
 
-              <Link to={""}>
+              {/* <Link to={""}>
                 <li className="mx-3">Home</li>
-              </Link>
+              </Link> */}
             </ul>
           </div>
           <div className="dropdown dropdown-end  mr-3">

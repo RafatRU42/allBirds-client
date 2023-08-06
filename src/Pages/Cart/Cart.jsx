@@ -15,7 +15,7 @@ const Cart = () => {
   // const items = useSelector((state) = state.cart.items)
 
 
-  fetch(`http://localhost:5000/getCartProduct?email=${email}`)
+  fetch(`https://all-birds-server-rafat.vercel.app/getCartProduct?email=${email}`)
     .then((res) => res.json())
     .then((data) => {
       setProduct(data)

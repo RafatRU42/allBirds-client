@@ -10,35 +10,15 @@ import Loading from "../../Shared/Loading";
 import { Helmet } from "react-helmet";
 
 const AllProducts = () => {
-  const [product, setProduct] = useState([]);
-  const [loading,setLoading] = useState(true)
+
 
  
  
 
-  fetch("http://localhost:5000/allProducts")
-    .then((res) => res.json())
-    .then((data) => {
-      setLoading(false)
-      setProduct(data)
-    });
-
-    if(loading){
-      return <Loading></Loading>
-    }
+ 
   return (
-    <div class="horizontal-scroll-container">
-      <Helmet>
-        <title>allBirds | All Product</title>
-      </Helmet>
-      <h1 className="font-link text-3xl pt-5 pl-10">All Products</h1>
-
-
-      <div class="horizontal-scroll-content" className="flex m-5">
-        {product.slice(0,2).map((data) => (
-          <ShowProduct key={data.id} product={data}></ShowProduct>
-        ))}
-      </div>
+    <div className="">
+    
       <div>
         <Jewellery></Jewellery>
         <Women></Women>

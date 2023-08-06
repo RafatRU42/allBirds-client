@@ -4,9 +4,13 @@ import { Outlet } from 'react-router-dom';
 
 const MainLayout = () => {
     return (
-        <div>
+        <div className=''>
+            <div className=''>
             <Navbar></Navbar>
+            </div>
+            <div className=''>
             <Outlet></Outlet>
+            </div>
         </div>
     );
 };

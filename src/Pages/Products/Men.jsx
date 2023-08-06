@@ -21,7 +21,7 @@ const Men = () => {
     return (
         <div>
             <p className='text-3xl font-link pt-5 pl-10'>Men's Clothing</p>
-           <div className='flex m-5'>
+           <div className='grid grid-grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:ml-10'>
            {
                 data.map(men => <ShowProduct product={men} key={men._id}></ShowProduct>)
             }

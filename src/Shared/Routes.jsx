@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
         {path:'/electronics',element:<Electronics></Electronics>},
         {path:'/cartRoute',element:<Cart></Cart>},
 
-        {path:'/seeDetails/:id',element:<SeeDetails></SeeDetails>,loader:({params}) =>fetch(`http://localhost:5000/details/${params.id}`)},
+        {path:'/seeDetails/:id',element:<SeeDetails></SeeDetails>,loader:({params}) =>fetch(`https://all-birds-server-rafat.vercel.app/details/${params.id}`)},
     ]},
 
 ])
