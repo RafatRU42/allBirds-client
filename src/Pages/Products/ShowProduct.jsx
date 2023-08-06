@@ -1,6 +1,6 @@
 import Flicking from "@egjs/react-flicking";
 import React from "react";
-import './../../script'
+import { Zoom,Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
 
@@ -9,9 +9,10 @@ const ShowProduct = ({ product }) => {
   const { title, price, description, image,_id } = product;
 
   return (
-    <div className="m-4 rellax" data-rellax-speed="-2">
-      
-      <div className="card w-96 bg-base-100 shadow-xl ">
+    <div className="m-4 " >
+       
+     <Fade cascade direction="left">
+     <div className="card w-96 bg-base-100 shadow-xl ">
         <figure>
           <img
             className="h-[250px]"
@@ -43,8 +44,8 @@ const ShowProduct = ({ product }) => {
         </div>
 
       </div>
-      <script src="https://unpkg.com/rellax@1.11.0/rellax.min.js"></script>
-  <script src="script.js"></script>
+     </Fade>
+    
     </div>
   );
 };

@@ -1,8 +1,11 @@
-# Assessment project
+# allBirds ecommerce site.
+## [Visit this live website](https://64cf8f9230bde643b6e99aa4--gleaming-lebkuchen-6c9ff5.netlify.app/)
+## This project build with MERN.
+## The Project also build with:
+* Redux-toolkit for state management.
+* Tailwind CSS , daisyUi and mambaUI as CSS library.
+* react awesome reveal for animation.
+* react helmet for setting up title.
+## To start this site locally:
+* run : 'npm run dev' 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

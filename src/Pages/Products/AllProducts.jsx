@@ -7,6 +7,7 @@ import Jewellery from "./Jewellery";
 import Electronics from "./Electronics";
 import { Link } from "react-router-dom";
 import Loading from "../../Shared/Loading";
+import { Helmet } from "react-helmet";
 
 const AllProducts = () => {
   const [product, setProduct] = useState([]);
@@ -27,6 +28,9 @@ const AllProducts = () => {
     }
   return (
     <div class="horizontal-scroll-container">
+      <Helmet>
+        <title>allBirds | All Product</title>
+      </Helmet>
       <h1 className="font-link text-3xl pt-5 pl-10">All Products</h1>
 
 

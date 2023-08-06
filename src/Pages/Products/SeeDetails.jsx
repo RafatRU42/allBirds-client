@@ -2,6 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { addToCart } from "../Cart/cartSlice";
+import { Fade } from "react-awesome-reveal";
+import { Helmet } from "react-helmet";
 
 const SeeDetails = () => {
   const data = useLoaderData();
@@ -42,6 +44,9 @@ const SeeDetails = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>allBirds | Details</title>
+      </Helmet>
       <h1 className="text-3xl font-link text-center uppercase mt-10">
         {category}
       </h1>
@@ -50,7 +55,9 @@ const SeeDetails = () => {
           <img className="h-[350px] ml-10" src={image} alt="" />
         </div>
 
-        <div className="w-2/3 mt-10">
+      <div className="w-2/3 mt-10">
+      <Fade cascade >
+
           <p className="text-5xl font-link ">{title}.</p>
           <p className="text-xl my-5 font-bold">Price: ${price}</p>
           <div className="flex">
@@ -63,6 +70,7 @@ const SeeDetails = () => {
           </div>
           <p className="text-xl mt-4">Price is including VAT.</p>
       <button onClick={handleAddToCart} className="btn btn-error font-link text-white mt-4">Add To Cart</button>
+      </Fade>
 
         </div>
       </div>

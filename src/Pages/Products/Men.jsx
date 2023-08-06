@@ -7,7 +7,7 @@ const Men = () => {
     const [data,setData] = useState([])
     const [loading,setLoading] = useState(true)
 
-    fetch('http://localhost:5000/men')
+    fetch('https://all-birds-server-rafat-gmpmsmryt-rafatru42.vercel.app/men')
     .then(res=> res.json())
     .then(result => {
         setLoading(false)

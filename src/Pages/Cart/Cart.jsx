@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import ShowCart from "../../Components/ShowCart";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Loading from "../../Shared/Loading";
+import { Helmet } from "react-helmet";
 
 const Cart = () => {
   const email = "rmrafat127@gmail.com";
 
   const [product, setProduct] = useState([]);
-  const [click,setClick] = useState(false)
+  const [loading,setLoading] = useState(true)
 
   const price = useSelector((state) =>state.cart.totalPrice)
   // const items = useSelector((state) = state.cart.items)
@@ -15,11 +17,18 @@ const Cart = () => {
 
   fetch(`http://localhost:5000/getCartProduct?email=${email}`)
     .then((res) => res.json())
-    .then((data) => setProduct(data));
+    .then((data) => {
+      setProduct(data)
+      setLoading(false)
+    });
+    if(loading){
+      return <Loading></Loading>
+    }
   return (
  <div className="m-10">
       <p className="text-3xl font-link">Your Cart</p>
-
+      <Helmet>
+        <title>allBirds | Cart</title></Helmet>
      <div className="flex">
 
      <div className="w-2/3 my-5">
