@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Loading from "../Shared/Loading";
 
 const Navbar = () => {
   const [product, setProduct] = useState([]);
+  const [loading,setLoading] = useState(true)
 
   const email = "rmrafat127@gmail.com";
   fetch(`https://all-birds-server-rafat.vercel.app/getCartProduct?email=${email}`)
@@ -11,6 +13,10 @@ const Navbar = () => {
       setProduct(data)
       setLoading(false)
     });
+
+    if(loading) {
+      return <Loading></Loading>
+    }
 
   return (
     <div className="">

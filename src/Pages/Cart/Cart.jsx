@@ -29,7 +29,7 @@ const Cart = () => {
       <p className="text-3xl font-link">Your Cart</p>
       <Helmet>
         <title>allBirds | Cart</title></Helmet>
-     <div className="flex">
+     <div className="flex ">
 
      <div className="w-2/3 my-5">
      <div className="overflow-x-auto">
@@ -74,12 +74,14 @@ const Cart = () => {
         </table>
       </div>
      </div>
-
-     <div className="w-1/3 text-2xl font-link">
+<div className="">
+  
+<div className="w-1/3 text-2xl font-link fixed">
             <p className="mt-10">Selected Product: {product.length}</p>
             <p>Total Price: ${price}</p>
             {/* <p>{items.length}</p> */}
      </div>
+</div>
     </div>
  </div>
   );
