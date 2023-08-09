@@ -32,7 +32,7 @@ const Cart = () => {
      <div className="flex ">
 
      <div className="w-2/3 my-5">
-     <div className="overflow-x-auto">
+     <div className="">
         <table className="table">
         
 

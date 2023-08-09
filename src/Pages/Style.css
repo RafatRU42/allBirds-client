@@ -1,14 +1,14 @@
 body {
     margin: 0;
     overflow: hidden;
-  }
+  } 
   
-  .horizontal-scroll-container {
+   .horizontal-scroll-container {
     width: 100%;
     overflow-x: auto;
     white-space: nowrap;
   }
-  
+   
   .horizontal-scroll-content {
     display: inline-block;
     white-space: nowrap;

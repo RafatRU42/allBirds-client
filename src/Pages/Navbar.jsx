@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Loading from "../Shared/Loading";
+import { AuthContext } from "../Context/AuthProvider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const [product, setProduct] = useState([]);
   const [loading,setLoading] = useState(true)
+
+  const {user,logOut} = useContext(AuthContext)
 
   const email = "rmrafat127@gmail.com";
   fetch(`https://all-birds-server-rafat.vercel.app/getCartProduct?email=${email}`)
@@ -16,6 +21,12 @@ const Navbar = () => {
 
     if(loading) {
       return <Loading></Loading>
+    }
+
+    const handleLogOut = () =>{
+      logOut()
+      .then(res =>{})
+      .catch(err=>{})
     }
 
   return (
@@ -59,7 +70,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="flex-none">
+        <div className="flex-none mr-5">
           <div className="">
             <ul className="hidden font-link md:flex">
               <Link to={"/"}>
@@ -140,30 +151,37 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <div className="dropdown dropdown-end mr-3">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
-          </div>
+         {
+          user?  <div className="dropdown dropdown-end mr-3">
+          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <div className="w-10 rounded-full">
+              <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+            </div>
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li>
+              <a className="justify-between">
+                Profile
+                <span className="badge">New</span>
+              </a>
+            </li>
+            <li>
+              <a>Settings</a>
+            </li>
+            <li>
+              <a className="btn btn-sm btn-error text-white my-2 font-link" onClick={handleLogOut}>Logout</a>
+            </li>
+          </ul>
+        </div>
+         : 
+          <Link to={'/signUp'}>
+            <FontAwesomeIcon className="h-5" beatFade icon={faArrowRightFromBracket}></FontAwesomeIcon>
+         {/* <p className="btn btn-xs btn-error text-white mx-3 my-1 font-link">Login</p> */}
+          </Link>
+        }
         </div>
       </div>
     </div>

@@ -14,3 +14,5 @@ export default {
   },
   plugins: [require("daisyui")],
 }
+
+// plugins: [require("tw-elements/dist/plugin.cjs")],
