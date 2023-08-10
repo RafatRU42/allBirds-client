@@ -10,6 +10,7 @@ import SeeDetails from "../Pages/Products/SeeDetails";
 import Cart from "../Pages/Cart/Cart";
 import Loading from "./Loading";
 import SignUp from "../Pages/SignUp";
+import Login from "../Pages/Login";
 
 export const router = createBrowserRouter([
     {path:'/',element:<MainLayout></MainLayout>,children:[
@@ -21,6 +22,7 @@ export const router = createBrowserRouter([
         {path:'/electronics',element:<Electronics></Electronics>},
         {path:'/cartRoute',element:<Cart></Cart>},
         {path:'/signUp',element:<SignUp></SignUp>},
+        {path:'/login',element:<Login/>},
 
         {path:'/seeDetails/:id',element:<SeeDetails></SeeDetails>,loader:({params}) =>fetch(`https://all-birds-server-rafat.vercel.app/details/${params.id}`)},
     ]},

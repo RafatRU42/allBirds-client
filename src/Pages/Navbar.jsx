@@ -153,9 +153,11 @@ const Navbar = () => {
           </div>
          {
           user?  <div className="dropdown dropdown-end mr-3">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          <label tabIndex={0} className="btn btn-default btn-circle btn-outline text-white avatar">
+            <div className="w-10 rounded-full border-rounded">
+             {
+              user.photoURL? <img src={user.photoURL} alt="photo" /> : <p className="border-rounded text-3xl font-link">{user?.displayName?.substring(0,1)}</p>
+             }
             </div>
           </label>
           <ul

@@ -5,67 +5,66 @@ import { GoogleAuthProvider } from "firebase/auth";
 import image from "../assets/679.jpg";
 import { Link } from "react-router-dom";
 
-const SignUp = () => {
-  const { createUser, googleSignIn, updateUser } = useContext(AuthContext);
+const Login = () => {
+  // const [error,setError] = useState('')
+    const {  googleSignIn, loginWithPassword } = useContext(AuthContext);
 
-  const provider = new GoogleAuthProvider();
-
-  const handleGoogleLogin = () => {
-    googleSignIn(provider);
-  };
-
-  const {
-    register,
-    handleSubmit,
-
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => {
-    const email = data.email;
-    const password = data.password;
-    const name = data.name;
-
-    createUser(email, password)
-      .then((result) => {
-        console.log("result", result);
-        const userInfo = {
-          displayName: name,
-        };
-        console.log("info", userInfo);
-        updateUser(userInfo)
-          .then((res) => {
-            console.log("name", res);
-            saveUser(user.name,user.email)
-          })
-          .catch((err) => {
-            console.log("eer", err);
-          });
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
-
-      const saveUser = (name,email) =>{
-        const info = {name,email}
+    const provider = new GoogleAuthProvider();
+  
+    const handleGoogleLogin = () => {
+      googleSignIn(provider)
+      .then(res=>{
+        console.log('google',res);
+        const email = res.user.email;
+        const name= res.user.displayName;
+        const data = {
+          email,
+          displayName:name
+        }
         fetch('https://all-birds-server-rafat.vercel.app/user',{
           method:'POST',
           headers:{
             'content-type' : 'application/json'
           },
-          body:JSON.stringify(info)
+          body:JSON.stringify(data)
         })
-        .then(result=>{
-          console.log('success',result);
+        .then(res => {
+          console.log('mongo',res);
         })
-        .catch(err=>{
-          console.log(err)
+        .catch(err =>{
+          console.log('mongoerr',err);
         })
-      }
-  };
-
-  return (
-    <div
-      className="pb-14 pt-6 flex justify-center items-center bg-cover bg-center bg-no-repeat "
+      })
+      .catch(err=>{
+        setError(err)
+      })
+    };
+  
+    const {
+      register,
+      handleSubmit,
+  
+      formState: { errors },
+    } = useForm();
+    const onSubmit = (data) => {
+      const email = data.email;
+      const password = data.password;
+      console.log('email,password',email,password);
+      
+      loginWithPassword(email,password)
+      .then(res =>{})
+      .catch(err => {
+        // console.log('obt',err);
+        // setError(err)
+      })
+  
+     
+    };
+  
+    return (
+        <div>
+              <div
+      className="py-20 flex justify-center items-center bg-cover bg-center bg-no-repeat "
       style={{ backgroundImage: `url(${image})` }}
     >
       <div className="w-1/2">
@@ -82,13 +81,7 @@ const SignUp = () => {
           </div>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
-          <input
-            type="text"
-            className="input input-bordered input-warning w-full  "
-            placeholder="User Name"
-            {...register("name", { required: "Please Set The Email" })}
-          />
-          <p className="text-red-500">{errors.name?.message}</p>
+         
 
           <input
             type="email"
@@ -129,8 +122,9 @@ const SignUp = () => {
           </div>
 
           <button className="btn btn-error text-white font-link w-full">
-            Sign Up
+            Login
           </button>
+          {/* <p className="text-red-500">{error}</p> */}
         </form>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
@@ -157,7 +151,7 @@ const SignUp = () => {
          
         </div>
         <p className="text-xs text-center sm:px-6 dark:text-gray-400">
-          Already have an account? Please <Link className="text-blue-500 " to={'/login'}>Login.</Link>
+          Don't have an account? Please <Link className="text-blue-500" to={'/signUp'}>Sign Up</Link>
           <a
             rel="noopener noreferrer"
             href="#"
@@ -168,7 +162,8 @@ const SignUp = () => {
         </p>
       </div>
     </div>
-  );
+        </div>
+    );
 };
 
-export default SignUp;
+export default Login;
