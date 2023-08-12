@@ -11,9 +11,10 @@ import Cart from "../Pages/Cart/Cart";
 import Loading from "./Loading";
 import SignUp from "../Pages/SignUp";
 import Login from "../Pages/Login";
+import ErrorPage from "./ErrorPage";
 
 export const router = createBrowserRouter([
-    {path:'/',element:<MainLayout></MainLayout>,children:[
+    {path:'/',element:<MainLayout></MainLayout>,errorElement:<ErrorPage></ErrorPage>,children:[
         {path:'/',element:<Home></Home>},
         {path:'/allProducts',element:<AllProducts></AllProducts>},
         {path:'/men',element:<Men></Men>},

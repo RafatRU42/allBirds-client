@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Fade } from "react-awesome-reveal";
+import { Fade, Zoom } from "react-awesome-reveal";
 import { Helmet } from "react-helmet";
 import ShowProduct from "./Products/ShowProduct";
 import Loading from "../Shared/Loading";
@@ -48,8 +48,17 @@ const Home = () => {
           </Fade>
         </div>
       </div>
-      <div className="text-3xl m-14 font-link">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ex harum iure maiores recusandae molestiae asperiores mollitia quis sint neque? Suscipit rem sed explicabo nisi odit tempora magnam molestiae quam.</div>
-      <div className="my-20">
+       <Zoom>
+       <div className="flex ml-16">
+          <img src="https://i.ibb.co/kGzYBf2/images.png" alt="" />
+          <img src="https://i.ibb.co/t4MDkkP/images-2.png" alt="" />
+          <img src="https://i.ibb.co/r4rMH2Q/images-3.png" alt="" />
+          <img src="https://i.ibb.co/nDDVtfK/images-4.png" alt="" />
+          <img src="https://i.ibb.co/7XjbrBn/images-1.png" alt="" />
+
+        </div>
+       </Zoom>
+      <div className="mb-10">
         <h1 className="font-link text-3xl pt-5 pl-10 my-4">Products</h1>
 
         <div className="grid grid-grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:ml-10">

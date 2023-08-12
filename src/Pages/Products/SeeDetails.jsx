@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { addToCart } from "../Cart/cartSlice";
 import { Fade } from "react-awesome-reveal";
 import { Helmet } from "react-helmet";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const SeeDetails = () => {
   const data = useLoaderData();
@@ -12,8 +15,10 @@ const SeeDetails = () => {
 
   const dispatch = useDispatch()
 
+  const {user} = useContext(AuthContext)
+
   const { image, category, title, description, price, rating } = data;
-  const email = 'rmrafat127@gmail.com'
+  const email = user?.email;
 
 
   const handleAddToCart = () =>{
@@ -69,7 +74,10 @@ const SeeDetails = () => {
             </p>
           </div>
           <p className="text-xl mt-4">Price is including VAT.</p>
-      <button onClick={handleAddToCart} className="btn btn-error font-link text-white mt-4">Add To Cart</button>
+      <button onClick={handleAddToCart} className="btn btn-error font-link text-white mt-4">Add To Cart
+      <FontAwesomeIcon className="h-6 w-6" icon={faCartPlus}></FontAwesomeIcon>
+      
+      </button>
       </Fade>
 
         </div>

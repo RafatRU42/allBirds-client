@@ -5,6 +5,9 @@ const initialState= {
     totalPrice: 0
 }
 
+// const storedCartState = JSON.parse(localStorage.getItem('cartState'))
+// const initialCartState = storedCartState || initialState;
+
 const cartSlice = createSlice({
     name: 'cart',
     initialState,
@@ -14,6 +17,8 @@ const cartSlice = createSlice({
 
             const price = action.payload.price;
             state.totalPrice += price;             //add the price
+
+            localStorage.setItem('cartState',JSON.stringify(state))
         }
     }
 

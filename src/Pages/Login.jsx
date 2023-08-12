@@ -3,11 +3,15 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../Context/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import image from "../assets/679.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { PropagateLoader } from "react-spinners";
+
 
 const Login = () => {
-  // const [error,setError] = useState('')
+  const [error,setError] = useState('')
+  const [loading,setLoading] = useState(false)
     const {  googleSignIn, loginWithPassword } = useContext(AuthContext);
+    const navigate = useNavigate()
 
     const provider = new GoogleAuthProvider();
   
@@ -17,6 +21,7 @@ const Login = () => {
         console.log('google',res);
         const email = res.user.email;
         const name= res.user.displayName;
+        navigate('/')
         const data = {
           email,
           displayName:name
@@ -36,7 +41,7 @@ const Login = () => {
         })
       })
       .catch(err=>{
-        setError(err)
+        setError(err.message)
       })
     };
   
@@ -47,15 +52,19 @@ const Login = () => {
       formState: { errors },
     } = useForm();
     const onSubmit = (data) => {
+      setLoading(true)
       const email = data.email;
       const password = data.password;
       console.log('email,password',email,password);
       
       loginWithPassword(email,password)
-      .then(res =>{})
+      .then(res =>{
+        navigate('/')
+      })
       .catch(err => {
-        // console.log('obt',err);
-        // setError(err)
+        console.log('obt',err.message);
+        setError(err.message)
+        setLoading(false)
       })
   
      
@@ -121,10 +130,15 @@ const Login = () => {
             </a>
           </div>
 
-          <button className="btn btn-error text-white font-link w-full">
-            Login
+    
+        <button className="btn btn-error text-white font-link w-full ">
+           {
+            loading? <PropagateLoader className="items-center" color="#fff" /> : 'Login'
+           }
           </button>
-          {/* <p className="text-red-500">{error}</p> */}
+
+       
+          <p className="text-red-500">{error}</p>
         </form>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>

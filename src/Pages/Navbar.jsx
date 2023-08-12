@@ -4,14 +4,16 @@ import Loading from "../Shared/Loading";
 import { AuthContext } from "../Context/AuthProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [product, setProduct] = useState([]);
   const [loading,setLoading] = useState(true)
 
   const {user,logOut} = useContext(AuthContext)
+  const price = useSelector((state) =>state.cart.totalPrice)
 
-  const email = "rmrafat127@gmail.com";
+  const email = user?.email
   fetch(`https://all-birds-server-rafat.vercel.app/getCartProduct?email=${email}`)
     .then((res) => res.json())
     .then((data) => {
@@ -24,14 +26,14 @@ const Navbar = () => {
     }
 
     const handleLogOut = () =>{
-      logOut()
+    logOut()
       .then(res =>{})
       .catch(err=>{})
     }
 
   return (
     <div className="">
-      <div className="navbar bg-orange-500 text-white shadow-md ">
+    <div className="navbar bg-orange-500 text-white shadow-md ">
         <div className="flex-1">
           <div className="dropdown md:hidden">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -136,10 +138,10 @@ const Navbar = () => {
               className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
             >
               <div className="card-body">
-                <span className="font-bold text-lg">
-                  {product.length} Items
+                <span className="font-bold text-lg text-black">
+                  {product?.length} Items Selected
                 </span>
-                <span className="text-info">Subtotal: $999</span>
+                <span className="text-info">Total: ${price}</span>
                 <div className="card-actions">
                   <Link
                     to={"/cartRoute"}

@@ -1,17 +1,25 @@
 import Flicking from "@egjs/react-flicking";
-import React from "react";
+import React, { useContext } from "react";
 import { Zoom,Fade } from "react-awesome-reveal";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addToCart } from "../Cart/cartSlice";
+import { AuthContext } from "../../Context/AuthProvider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
 
 
 const ShowProduct = ({ product }) => {
   const { title, price, description, image,_id } = product;
+  const {user} = useContext(AuthContext)
   const dispatch = useDispatch()
+  
 
-  const email = 'rmrafat127@gmail.com'
+
+  
+
+  const email = user?.email;
 
   const handleAddToCart = () =>{
 
@@ -41,7 +49,7 @@ const ShowProduct = ({ product }) => {
   return (
     <div className="m-4 " >
        
-     <Fade cascade direction="left">
+     <Fade cascade direction="up">
      <div className="card w-96 bg-base-100 shadow-xl ">
      <Link  to={`/seeDetails/${_id}`}>
         <figure>
@@ -68,12 +76,12 @@ const ShowProduct = ({ product }) => {
         </Link>
 
         <div className="">
-        {/* <button className=" bg-orange-400 w-full p-3 -mt-2 font-bold text-white">Add to Cart</button> */}
       
-         <button onClick={handleAddToCart}  className="btn btn-error w-full p-3 -mt-2 font-bold text-white font-link">Add To Cart</button>
-      
-
-
+         <button onClick={handleAddToCart}  className="btn btn-error w-full p-3 -mt-2 font-bold text-white font-link">Add To Cart 
+         <FontAwesomeIcon className="h-6 w-6" icon={faCartPlus}></FontAwesomeIcon>
+         
+         </button>
+    
         </div>
 
       </div>

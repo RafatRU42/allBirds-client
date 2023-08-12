@@ -3,15 +3,26 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../Context/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import image from "../assets/679.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { PropagateLoader } from "react-spinners";
 
 const SignUp = () => {
   const { createUser, googleSignIn, updateUser } = useContext(AuthContext);
+  const [loading,setLoading] = useState(false)
+  const navigate = useNavigate()
+
+  const [error,setError] = useState('')
 
   const provider = new GoogleAuthProvider();
 
   const handleGoogleLogin = () => {
-    googleSignIn(provider);
+    googleSignIn(provider)
+    .then(res =>{
+      navigate('/')
+    })
+    .catch(error =>{
+
+    })
   };
 
   const {
@@ -21,6 +32,7 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    setLoading(true)
     const email = data.email;
     const password = data.password;
     const name = data.name;
@@ -34,7 +46,7 @@ const SignUp = () => {
         console.log("info", userInfo);
         updateUser(userInfo)
           .then((res) => {
-            console.log("name", res);
+            navigate('/')
             saveUser(user.name,user.email)
           })
           .catch((err) => {
@@ -43,6 +55,8 @@ const SignUp = () => {
       })
       .catch((error) => {
         console.log("error", error);
+        setError(error.message)
+        setLoading(false)
       });
 
       const saveUser = (name,email) =>{
@@ -62,6 +76,8 @@ const SignUp = () => {
         })
       }
   };
+
+
 
   return (
     <div
@@ -129,8 +145,11 @@ const SignUp = () => {
           </div>
 
           <button className="btn btn-error text-white font-link w-full">
-            Sign Up
+           {
+            loading? <PropagateLoader className="items-center" color="#fff" /> : 'Sign Up'
+           }
           </button>
+          <p className="text-red-500">{error}</p>
         </form>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
