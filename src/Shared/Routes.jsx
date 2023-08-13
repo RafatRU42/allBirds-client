@@ -12,6 +12,8 @@ import Loading from "./Loading";
 import SignUp from "../Pages/SignUp";
 import Login from "../Pages/Login";
 import ErrorPage from "./ErrorPage";
+import AmazonProduct from "../Pages/AmazonProducts/AmazonProduct";
+import AmazonDetails from "../Pages/AmazonProducts/AmazonDetails";
 
 export const router = createBrowserRouter([
     {path:'/',element:<MainLayout></MainLayout>,errorElement:<ErrorPage></ErrorPage>,children:[
@@ -24,6 +26,8 @@ export const router = createBrowserRouter([
         {path:'/cartRoute',element:<Cart></Cart>},
         {path:'/signUp',element:<SignUp></SignUp>},
         {path:'/login',element:<Login/>},
+        {path:'/AProduct',element:<AmazonProduct></AmazonProduct>},
+        {path:'/amazonDetails/:id',element:<AmazonDetails></AmazonDetails>,loader: ({params}) => fetch(`https://all-birds-server-rafat.vercel.app/amazonDetails/${params.id}`) },
 
         {path:'/seeDetails/:id',element:<SeeDetails></SeeDetails>,loader:({params}) =>fetch(`https://all-birds-server-rafat.vercel.app/details/${params.id}`)},
     ]},
