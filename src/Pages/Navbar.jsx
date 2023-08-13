@@ -78,10 +78,42 @@ const Navbar = () => {
               <Link to={"/"}>
                 <li className="mx-3">Home</li>
               </Link>
+              <div className="dropdown mx-3">
+                <button tabIndex={0} className="">
+                  Branded
+                </button>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 my-2"
+                >
+                  <Link to={"/cap"}>
+                    <li className="btn btn-xs btn-error text-white mx-3 my-1">Addidas Caps</li>
+                  </Link>
+                  <Link to={"/pant"}>
+                    <li className="btn btn-xs btn-error text-white mx-3 my-1">TIRO Pants</li>
+                  </Link>
+                  <Link to={"/shoes"}>
+                    <li className="btn btn-xs btn-error text-white mx-3 my-1">Addidas Shoes</li>
+                  </Link>
+                  <Link to={"/earphone"}>
+                    <li className="btn btn-xs btn-error text-white mx-3 my-1">Branded Earphones</li>
+                  </Link>
+                  <Link to={"/bottle"}>
+                    <li className="btn btn-xs btn-error text-white mx-3 my-1">Steel Bottle</li>
+                  </Link>
+                  <Link to={"/sneaker"}>
+                    <li className="btn btn-xs btn-error text-white mx-3 my-1">Addidas Sneaker</li>
+                  </Link>
+                  <Link to={"/bag"}>
+                    <li className="btn btn-xs btn-error text-white mx-3 my-1">Branded Bag</li>
+                  </Link>
+
+                </ul>
+              </div>
 
               <div className="dropdown mx-3">
                 <button tabIndex={0} className="">
-                  Products
+                  Premium
                 </button>
                 <ul
                   tabIndex={0}
