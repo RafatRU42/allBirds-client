@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ShowAmazon from "../AmazonProducts/ShowAmazon";
+import { Helmet } from "react-helmet";
 
 const Cap = () => {
     const [data,setData] = useState([])
@@ -8,8 +9,11 @@ const Cap = () => {
     .then(result=> setData(result))
     return (
         <div>
+            <Helmet>
+                <title>Cap | allBirds</title>
+            </Helmet>
                 <div>
-        <h1 className="text-3xl font-link mt-10 ml-20">This is Amazon Products</h1>
+        <h1 className="text-3xl font-link mt-10 ml-20">Branded cap from allBirds</h1>
       <div className="grid grid-cols-4 ml-16 my-10">
         {data.map((products) => (
           <ShowAmazon key={products._id} product={products}></ShowAmazon>
