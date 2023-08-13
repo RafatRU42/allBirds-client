@@ -1,11 +1,18 @@
 import { useState } from "react";
 import ShowAmazon from "./ShowAmazon";
+import Loading from "../../Shared/Loading";
 
 const AmazonProduct = () => {
   const [data, setData] = useState([]);
+  const [loading,setLoading] = useState(true)
   fetch("http://localhost:5000/amazonProduct")
     .then((res) => res.json())
-    .then((result) => setData(result));
+    .then((result) => {setData(result)
+    setLoading(false)
+    });
+    if(loading){
+      return <Loading></Loading>
+    }
   return (
     <div>
         <h1 className="text-3xl font-link mt-10 ml-20">This is Amazon Products</h1>

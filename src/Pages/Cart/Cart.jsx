@@ -55,6 +55,7 @@ const Cart = () => {
       <Helmet>
         <title>allBirds | Cart</title>
       </Helmet>
+      <Fade cascade>
       <div className="flex ">
         <div className="w-2/3 my-5">
           <div className="">
@@ -126,6 +127,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
+      </Fade>
     </div>
   );
 };

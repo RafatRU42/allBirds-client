@@ -1,12 +1,19 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet";
 import ShowAmazon from "../AmazonProducts/ShowAmazon";
+import Loading from "../../Shared/Loading";
 
 const Sneaker = () => {
     const [data, setData] = useState([]);
+    const [loading,setLoading] = useState(true)
     fetch("http://localhost:5000/sneaker")
       .then((res) => res.json())
-      .then((result) => setData(result));
+      .then((result) => {setData(result)
+    setLoading(false)
+    });
+    if(loading){
+        return <Loading></Loading>
+    }
     return (
         <div>
         <Helmet>
