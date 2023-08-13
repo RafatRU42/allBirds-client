@@ -48,7 +48,7 @@ const SeeDetails = () => {
 
 
   return (
-    <div>
+    <div className="min-h-screen">
       <Helmet>
         <title>allBirds | Details</title>
       </Helmet>

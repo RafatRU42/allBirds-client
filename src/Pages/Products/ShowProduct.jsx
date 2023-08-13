@@ -39,7 +39,7 @@ const ShowProduct = ({ product }) => {
   };
 
   return (
-    <div className="m-4 ">
+    <div className="m-4 min-h-screen">
       <Fade cascade direction="up">
         <div className="card w-96 bg-base-100 shadow-xl ">
           <Link to={`/seeDetails/${_id}`}>

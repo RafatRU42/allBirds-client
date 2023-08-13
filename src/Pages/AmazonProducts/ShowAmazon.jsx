@@ -37,7 +37,7 @@ const ShowAmazon = ({product}) => {
           });
       };
     return (
-        <div className="m-4 ">
+        <div className="m-4 min-h-screen">
       <Fade cascade >
         <div className="card w-60 bg-base-100 shadow-xl ">
           <Link to={`/amazonDetails/${_id}`}>

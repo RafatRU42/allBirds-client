@@ -14,6 +14,12 @@ import Login from "../Pages/Login";
 import ErrorPage from "./ErrorPage";
 import AmazonProduct from "../Pages/AmazonProducts/AmazonProduct";
 import AmazonDetails from "../Pages/AmazonProducts/AmazonDetails";
+import Cap from "../Pages/Products/Cap";
+import Pant from "../Pages/Products/Pant";
+import Shoes from "../Pages/Products/Shoes";
+import Bag from "../Pages/Products/Bag";
+import Bottle from "../Pages/Products/Bottle";
+import Earphone from "../Pages/Products/Earphone";
 
 export const router = createBrowserRouter([
     {path:'/',element:<MainLayout></MainLayout>,errorElement:<ErrorPage></ErrorPage>,children:[
@@ -28,6 +34,12 @@ export const router = createBrowserRouter([
         {path:'/login',element:<Login/>},
         {path:'/AProduct',element:<AmazonProduct></AmazonProduct>},
         {path:'/amazonDetails/:id',element:<AmazonDetails></AmazonDetails>,loader: ({params}) => fetch(`https://all-birds-server-rafat.vercel.app/amazonDetails/${params.id}`) },
+        {path:'/cap',element:<Cap></Cap>},
+        {path:'/pant',element:<Pant></Pant>},
+        {path:'/shoes',element:<Shoes></Shoes>},
+        {path:'/bag',element:<Bag/>},
+        {path:'/bottle',element:<Bottle/>},
+        {path:'/earphone',element:<Earphone/>},
 
         {path:'/seeDetails/:id',element:<SeeDetails></SeeDetails>,loader:({params}) =>fetch(`https://all-birds-server-rafat.vercel.app/details/${params.id}`)},
     ]},

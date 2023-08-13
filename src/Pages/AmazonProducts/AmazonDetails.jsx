@@ -44,7 +44,7 @@ const AmazonDetails = () => {
           })
     }
     return (
-        <div>
+        <div className="min-h-screen">
         <Helmet>
           <title>Details | allBirds</title>
         </Helmet>

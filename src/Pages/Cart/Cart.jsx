@@ -47,7 +47,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="m-10">
+    <div className="m-10 min-h-screen">
       <Zoom>
       <p className="text-3xl font-link">{user?.displayName}'s Cart</p>
 
