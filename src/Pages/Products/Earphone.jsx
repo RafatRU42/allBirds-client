@@ -6,7 +6,7 @@ import Loading from "../../Shared/Loading";
 const Earphone = () => {
     const [data,setData] = useState([])
     const [loading,setLoading] = useState(true)
-    fetch('http://localhost:5000/earphone')
+    fetch('https://all-birds-server-rafat.vercel.app/earphone')
     .then(res=>res.json())
     .then(result=>{ setData(result)
     setLoading(false)

@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { useLoaderData } from "react-router-dom";
 import { addToCart } from "../Cart/cartSlice";
 import { AuthContext } from "../../Context/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const AmazonDetails = () => {
     const dispatch = useDispatch()
@@ -41,6 +42,7 @@ const AmazonDetails = () => {
           .then(data => {
               console.log(data)
               // navigate('/cartRoute')
+              toast.success('The product added to the cart!')
           })
     }
     return (

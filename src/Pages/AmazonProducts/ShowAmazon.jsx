@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { addToCart } from "../Cart/cartSlice";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
+import { toast } from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const ShowAmazon = ({product}) => {
     const {name,_id,description,price,category,img,ratings} = product;
@@ -33,19 +35,23 @@ const ShowAmazon = ({product}) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            toast.success('The product added to the cart!')
           });
       };
     return (
-        <div className="m-4 ">
+        <div className="m-4 group">
+          <Helmet>
+            <title>Branded Products | allBirds</title>
+          </Helmet>
       <Fade cascade >
         <div className="card w-60 bg-base-100 shadow-xl ">
           <Link to={`/amazonDetails/${_id}`}>
             <figure>
-              <img className="h-[150px] w-full" src={img} alt="Shoes" />
+              <img className="h-[150px] w-full group-hover:scale-110 duration-300" src={img} alt="Shoes" />
             </figure>
             <div className="card-body -mx-4">
-              <h2 className="text-md font-link">
+          <Fade cascade direction="up">
+          <h2 className="text-md font-link">
                 {name.substring(0, 15)}..
               </h2>
               {/* <p>{description.substring(0, 70)}...</p> */}
@@ -57,6 +63,7 @@ const ShowAmazon = ({product}) => {
                   {ratings} Ratings
                 </p>
               </div>
+          </Fade>
             </div>
           </Link>
 

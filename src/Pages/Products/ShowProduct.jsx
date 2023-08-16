@@ -7,6 +7,7 @@ import { addToCart } from "../Cart/cartSlice";
 import { AuthContext } from "../../Context/AuthProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-hot-toast";
 
 const ShowProduct = ({ product }) => {
   const { title, price, description, image, _id } = product;
@@ -34,36 +35,49 @@ const ShowProduct = ({ product }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        toast.success('The product added to the cart!')
       });
   };
 
   return (
     <div className="m-4 ">
-      <Fade cascade direction="up">
-        <div className="card w-96 bg-base-100 shadow-xl ">
+    
+        <div className="card w-96 bg-base-100 shadow-xl group">
           <Link to={`/seeDetails/${_id}`}>
             <figure>
-              <img className="h-[250px]" src={image} alt="Shoes" />
-            </figure>
+              <Zoom>
+              <img className="h-[250px] group-hover:scale-110 duration-300" src={image} alt="Shoes" />
+
+              </Zoom>
+              </figure>
             <div className="card-body">
-              <h2 className="card-title font-link">
+            <Zoom>
+            <h2 className="card-title font-link">
                 {title.substring(0, 25)}..
               </h2>
+            </Zoom>
+            <Zoom>
               <p>{description.substring(0, 70)}...</p>
+            </Zoom>
 
               <div className="card-actions justify-between">
+                <Zoom>
                 <p className="font-bold">Price: $ {price}</p>
+
+                </Zoom>
                 {/* <div className="badge badge-outline">$ {price}</div> */}
-                <p className="badge badge-outline py-1 -px-2">
+               <Zoom>
+               <p className="badge badge-outline py-1 -px-2">
                   {product.rating.rate} Ratings
                 </p>
+               </Zoom>
               </div>
             </div>
           </Link>
 
           <div className="">
-            <button
+       <Zoom>
+       <button
               onClick={handleAddToCart}
               className="btn btn-error w-full p-3 -mt-2 font-bold text-white font-link"
             >
@@ -73,9 +87,10 @@ const ShowProduct = ({ product }) => {
                 icon={faCartPlus}
               ></FontAwesomeIcon>
             </button>
+       </Zoom>
           </div>
         </div>
-      </Fade>
+      
     </div>
   );
 };

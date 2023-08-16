@@ -5,7 +5,7 @@ import Loading from "../../Shared/Loading";
 const AmazonProduct = () => {
   const [data, setData] = useState([]);
   const [loading,setLoading] = useState(true)
-  fetch("http://localhost:5000/amazonProduct")
+  fetch("https://all-birds-server-rafat.vercel.app/amazonProduct")
     .then((res) => res.json())
     .then((result) => {setData(result)
     setLoading(false)

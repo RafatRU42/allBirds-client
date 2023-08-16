@@ -20,6 +20,8 @@ import Shoes from "../Pages/Products/Shoes";
 import Bag from "../Pages/Products/Bag";
 import Bottle from "../Pages/Products/Bottle";
 import Earphone from "../Pages/Products/Earphone";
+import Sneaker from "../Pages/Products/Sneaker";
+import Wishlist from "../Pages/WishList/Wishlist";
 
 export const router = createBrowserRouter([
     {path:'/',element:<MainLayout></MainLayout>,errorElement:<ErrorPage></ErrorPage>,children:[
@@ -38,8 +40,10 @@ export const router = createBrowserRouter([
         {path:'/pant',element:<Pant></Pant>},
         {path:'/shoes',element:<Shoes></Shoes>},
         {path:'/bag',element:<Bag/>},
+        {path:'/sneaker',element:<Sneaker></Sneaker>},
         {path:'/bottle',element:<Bottle/>},
         {path:'/earphone',element:<Earphone/>},
+        {path:'/wishlist',element:<Wishlist></Wishlist>},
 
         {path:'/seeDetails/:id',element:<SeeDetails></SeeDetails>,loader:({params}) =>fetch(`https://all-birds-server-rafat.vercel.app/details/${params.id}`)},
     ]},

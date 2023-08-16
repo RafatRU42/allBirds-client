@@ -1,16 +1,19 @@
-import { useState } from 'react'
 
 import { RouterProvider } from 'react-router-dom'
 import { router } from './Shared/Routes'
+import toast, { Toaster } from 'react-hot-toast'
 
 
 function App() {
   
 
   return (
-  <RouterProvider router={router}>
-
+<div>
+<RouterProvider router={router}>
   </RouterProvider>
+    <Toaster></Toaster>
+</div>
+
   )
 }
 

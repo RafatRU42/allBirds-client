@@ -138,9 +138,9 @@ const Navbar = () => {
                 </ul>
               </div>
 
-              {/* <Link to={""}>
-                <li className="mx-3">Home</li>
-              </Link> */}
+              <Link to={"/wishlist"}>
+                <li className="mx-3">Wishlist</li>
+              </Link>
             </ul>
           </div>
           <div className="dropdown dropdown-end  mr-3">
@@ -199,12 +199,12 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a className="justify-between">
+              <a className="btn btn-default btn-sm font-link">
                 Profile
-                <span className="badge">New</span>
+               
               </a>
             </li>
-            <li>
+            <li className="btn btn-default btn-sm font-link my-2">
               <a>Settings</a>
             </li>
             <li>

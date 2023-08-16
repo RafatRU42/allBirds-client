@@ -6,7 +6,7 @@ import Loading from "../../Shared/Loading";
 const Bag = () => {
     const [data,setData] = useState([])
     const [loading,setLoading] = useState(true)
-    fetch('http://localhost:5000/bag')
+    fetch('https://all-birds-server-rafat.vercel.app/bag')
     .then(res => res.json())
     .then(result=> {
         setLoading(false)

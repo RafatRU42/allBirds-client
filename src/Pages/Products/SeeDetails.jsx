@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { AuthContext } from "../../Context/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const SeeDetails = () => {
   const data = useLoaderData();
@@ -41,7 +42,7 @@ const SeeDetails = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            toast.success('The product added to the cart!')
             // navigate('/cartRoute')
         })
   }
