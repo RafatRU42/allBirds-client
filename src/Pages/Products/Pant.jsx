@@ -7,7 +7,7 @@ const Pant = () => {
     const [data,setData] = useState([])
     const [loading,setLoading] = useState(true)
     fetch('https://all-birds-server-rafat.vercel.app/pant')
-    .then(res =>res.josn())
+    .then(res =>res.json())
     .then(result=>{setData(result)
     setLoading(false)
     })
