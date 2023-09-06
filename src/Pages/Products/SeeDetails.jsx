@@ -56,18 +56,18 @@ const SeeDetails = () => {
       <h1 className="text-3xl font-link text-center uppercase mt-10">
         {category}
       </h1>
-      <div className="flex m-10">
-        <div className="w-1/3">
+      <div className="md:flex m-10">
+        <div className="md:w-1/3 w-full">
           <img className="h-[350px] ml-10" src={image} alt="" />
         </div>
 
-      <div className="w-2/3 mt-10">
+      <div className="w-full md:w-2/3 mt-10">
       <Fade cascade >
 
-          <p className="text-5xl font-link ">{title}.</p>
+          <p className="text-3xl md:text-5xl font-link ">{title}.</p>
           <p className="text-xl my-5 font-bold">Price: ${price}</p>
-          <div className="flex">
-            <p className="badge badge-outline text-xl p-3">
+          <div className="md:flex block ">
+            <p className="badge badge-outline text-xl mb-2 p-3">
               Rating {rating.rate}
             </p>
             <p className="badge badge-outline text-xl ml-3 p-3">

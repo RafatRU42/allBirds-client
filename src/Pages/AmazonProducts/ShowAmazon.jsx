@@ -39,12 +39,12 @@ const ShowAmazon = ({product}) => {
           });
       };
     return (
-        <div className="m-4 group">
+        <div className="m-4 group mx-10">
           <Helmet>
             <title>Branded Products | allBirds</title>
           </Helmet>
       <Fade cascade >
-        <div className="card w-60 bg-base-100 shadow-xl ">
+        <div className="card w-76 md:w-60 bg-base-100 shadow-xl">
           <Link to={`/amazonDetails/${_id}`}>
             <figure>
               <img className="h-[150px] w-full group-hover:scale-110 duration-300" src={img} alt="Shoes" />

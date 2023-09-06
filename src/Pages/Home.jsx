@@ -19,23 +19,23 @@ const Home = () => {
         <title>allBirds | Home</title>
       </Helmet>
       <div className="w-full md:flex m-6 ">
-        <div className="md:w-1/3 w-full">
+        <div className="md:w-1/3 flex w-full">
           <Fade direction="left">
             <img
-              className="ml-20"
+              className=" md:ml-20"
               src="https://i.ibb.co/s3xttLY/1759326.gif"
               alt=""
             />
           </Fade>
         </div>
-        <div className="w-full mt-8 md:w-2/3 md:my-auto">
+        <div className="w-full mt-8 md:w-2/3 md:my-auto ">
           <Zoom>
-            <h1 className="uppercase text-7xl font-link text-center ">
+            <h1 className="uppercase text-3xl mx-auto md:text-7xl font-link text-center mr-6">
               Upto 50% Off Wardrobe wins!
             </h1>
           </Zoom>
           <Zoom>
-            <p className="text-center my-4 text-xl">
+            <p className="text-center my-4 text-xl mr-6">
               Limited time only. Selected styles marked down as shown.
             </p>
           </Zoom>
@@ -52,7 +52,7 @@ const Home = () => {
         </div>
       </div>
       <Fade direction="down">
-        <div className="flex ml-16">
+        <div className="md:flex ml-16 hidden">
           <img src="https://i.ibb.co/kGzYBf2/images.png" alt="" />
           <img src="https://i.ibb.co/t4MDkkP/images-2.png" alt="" />
           <img src="https://i.ibb.co/r4rMH2Q/images-3.png" alt="" />
@@ -378,10 +378,10 @@ const Home = () => {
       {/* div 5 */}
 
       <Zoom>
-        <h1 className="text-5xl font-semibold font-link ml-20">Our Rankings</h1>
+        <h1 className="text-5xl font-semibold text-center font-link mt-10">Our Rankings</h1>
       </Zoom>
-      <section className="p-6 my-6 ">
-        <div className="container grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-4">
+      <section className="p-6 my-6 ml-10">
+        <div className="container mx-auto text-center grid grid-cols-2 gap-6 mx-auto sm:grid-cols-3 xl:grid-cols-4">
           <Zoom>
             <div className="flex p-4 space-x-4 rounded-lg md:space-x-6 ">
               <div className="flex justify-center p-2 align-middle rounded-lg sm:p-4 bg-error ">
@@ -473,12 +473,12 @@ const Home = () => {
         <div className="bg-error">
           <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-900">
             <Zoom>
-              <h1 className="text-5xl font-bold leadi sm:text-6xl xl:max-w-3xl text-white font-link">
+              <h1 className="text-3xl font-bold leadi md:text-5xl xl:max-w-3xl text-white font-link">
                 Get Our Sessional legends collection.
               </h1>
             </Zoom>
             <Zoom>
-              <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-900">
+              <p className="mt-6 mb-8 text-lg sm:mb-12  mx-6 xl:max-w-3xl dark:text-gray-900">
                 From our Legends Collection, the Naga was inspired by the
                 mythical water dragon that protects the ocean's pearl!
               </p>

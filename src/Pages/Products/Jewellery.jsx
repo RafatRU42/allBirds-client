@@ -20,7 +20,7 @@ const Jewellery = () => {
 
     return (
         <div>
-            <p className='text-3xl font-link pt-5 pl-10'>Jewellery</p>
+            <p className='text-3xl font-link pt-5 text-center md:pl-10'>Jewellery</p>
           <div className='grid grid-grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:ml-10'>
           {
             product.map(products => <ShowProduct product={products} key={products._id}></ShowProduct>)

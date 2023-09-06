@@ -21,10 +21,10 @@ const Bag = () => {
                 <title>Bag | allBirds</title>
             </Helmet>
              <div>
-        <h1 className="text-3xl font-link mt-10 ml-20">
+        <h1 className="text-3xl font-link mt-10 text-center md:ml-20">
           Branded Bag from allBirds
         </h1>
-        <div className="grid grid-cols-4 ml-16 my-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:ml-16 my-10">
           {data.map((products) => (
             <ShowAmazon key={products._id} product={products}></ShowAmazon>
           ))}
