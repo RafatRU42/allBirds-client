@@ -84,14 +84,14 @@ const SignUp = () => {
       className="pb-14 pt-6 flex justify-center items-center bg-cover bg-center bg-no-repeat "
       style={{ backgroundImage: `url(${image})` }}
     >
-      <div className="w-1/2">
+      <div className="hidden md:flex md:w-1/2">
         <img className="ml-20" src="https://i.ibb.co/YLRfdDz/work.png" alt="" />
       </div>
 
       <div className="w-full max-w-md p-8 space-y-3 shadow-xl mx-auto my-5 rounded-xl ">
         <div className="flex -my-10">
           <div className="mx-auto h-40 w-40">
-            <img
+            <img className=""
               src="https://i.ibb.co/6bShK8p/output-onlinegiftools.gif"
               alt=""
             />

@@ -18,7 +18,6 @@ const Login = () => {
     const handleGoogleLogin = () => {
       googleSignIn(provider)
       .then(res=>{
-        console.log('google',res);
         const email = res.user.email;
         const name= res.user.displayName;
         navigate('/')
@@ -76,7 +75,7 @@ const Login = () => {
       className="py-20 flex justify-center items-center bg-cover bg-center bg-no-repeat "
       style={{ backgroundImage: `url(${image})` }}
     >
-      <div className="w-1/2">
+      <div className="hidden md:flex md:w-1/2">
         <img className="ml-20" src="https://i.ibb.co/YLRfdDz/work.png" alt="" />
       </div>
 
